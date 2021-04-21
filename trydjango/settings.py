@@ -31,12 +31,27 @@ ALLOWED_HOSTS = [ '127.0.0.1', 'localhost', 'testserver', '7a66f51df4044c35bec72
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin', #python manage.py createsuperuser, .../admin
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # My own apps
+    # If you delete the database, have to create a new superuser
+    # for admin
+    # Likewise, have to have the _init_.py method into the migrations folder
+    # for each app
+    
+    # make sure to makemigrations and then migrate
+    # when creating a new app
+    'products',
+    
+    # Creating this to create a new view for the homepage
+    # in this app go to views.py
+    'pages'
+    
 ]
 
 MIDDLEWARE = [
@@ -49,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Have to change the .urls file to change default "view"
 ROOT_URLCONF = 'trydjango.urls'
 
 TEMPLATES = [

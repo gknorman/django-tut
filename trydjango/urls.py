@@ -16,6 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Pattern to get the view from custom "app" eg pages
+# Import the actual view you want to use and put it in the pattern later
+from pages.views import home_view
+
+# DON'T use this pattern!  Namespace conflicts will keep coming up with multiple
+# 'views'
+# from pages import views
+
+
 urlpatterns = [
+    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
+    
 ]
